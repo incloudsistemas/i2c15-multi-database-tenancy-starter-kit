@@ -63,6 +63,9 @@ DB_PASSWORD=your_password
 127.0.0.1 admin.i2c.local
 127.0.0.1 foo.i2c.local
 127.0.0.1 bar.i2c.local
+
+Linux and macOS => /etc/hosts
+Windows => C:\Windows\System32\drivers\etc\hosts
 ```
 
 ### 7. Run migrations and seeders
@@ -77,9 +80,11 @@ php artisan migrate --seed
 php artisan tinker
 
 $tenant1 = App\Models\System\Tenant::create(['id' => 'foo']);
+$tenant1->account()->create(['name' => 'Foo']);
 $tenant1->domains()->create(['domain' => 'foo.i2c.local']);
 
 $tenant2 = App\Models\System\Tenant::create(['id' => 'bar']);
+$tenant2->account()->create(['name' => 'Bar']);
 $tenant2->domains()->create(['domain' => 'bar.i2c.local']);
 
 App\Models\System\Tenant::all()->runForEach(function () {

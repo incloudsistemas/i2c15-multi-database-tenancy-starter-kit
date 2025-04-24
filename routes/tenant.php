@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
@@ -25,5 +26,22 @@ Route::middleware([
 ])->group(function () {
     Route::get('/', function () {
         return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
+    });
+
+    /*
+    |--------------------------------------------------------------------------
+    | CLEAR
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    Route::get('/app-clear', function () {
+        $optimizeClear = Artisan::call('optimize:clear');
+        echo "Optimize cache cleared! <br/>";
+
+        $filamentComponentsCacheClear = Artisan::call('filament:clear-cached-components');
+        echo "Filament components cache cleared! <br/>";
+
+        echo "App cleared! <br/>";
     });
 });
