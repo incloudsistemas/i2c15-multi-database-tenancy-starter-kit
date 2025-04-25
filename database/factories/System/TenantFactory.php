@@ -47,12 +47,12 @@ class TenantFactory extends Factory
                     'domain' => $tenant->id . '.i2c.local',
                 ]);
 
-            tenancy()->initialize($tenant);
+            // tenancy()->initialize($tenant);
 
-            User::factory(rand(1, 5))
-                ->create();
+            // User::factory(rand(1, 5))
+            //     ->create();
 
-            tenancy()->end();
+            // tenancy()->end();
         });
     }
 }

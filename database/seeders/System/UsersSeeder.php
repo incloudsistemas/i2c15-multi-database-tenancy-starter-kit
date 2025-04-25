@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
             'remember_token'    => Str::random(10),
         ]);
 
-        // $superadmin->assignRole('Superadministrador');
+        $superadmin->assignRole('Superadministrador');
 
         // Delay of 1 seconds
         sleep(1);
@@ -36,7 +36,7 @@ class UsersSeeder extends Seeder
         User::factory(10)
             ->create()
             ->each(function ($user) {
-                // $user->assignRole('Administrador');
+                $user->assignRole('Administrador');
             });
     }
 

@@ -22,10 +22,11 @@ use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements FilamentUser, HasMedia
 {
-    use HasFactory, Notifiable, InteractsWithMedia, SoftDeletes;
+    use HasFactory, Notifiable, HasRoles, InteractsWithMedia, SoftDeletes;
 
     protected $fillable = [
         'name',

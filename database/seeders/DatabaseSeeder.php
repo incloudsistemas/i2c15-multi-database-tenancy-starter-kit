@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\System\User;
+use App\Models\System\Tenant;
+use Database\Seeders\System\RolesAndPermissionsSeeder;
 use Database\Seeders\System\TenantCategoriesSeeder;
 use Database\Seeders\System\TenantPlansSeeder;
+use Database\Seeders\System\TenantRolesAndPermissionsSeeder;
 use Database\Seeders\System\TenantsSeeder;
 use Database\Seeders\System\UsersSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -18,11 +20,20 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            RolesAndPermissionsSeeder::class,
             UsersSeeder::class,
 
             // TenantPlansSeeder::class,
             // TenantCategoriesSeeder::class,
             // TenantsSeeder::class,
         ]);
+
+        // Tenant::all()
+        //     ->runForEach(function (): void {
+        //         $this->call([
+        //             TenantRolesAndPermissionsSeeder::class,
+        //             // UsersSeeder::class,
+        //         ]);
+        //     });
     }
 }
