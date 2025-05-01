@@ -19,6 +19,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $commandName = $this->command?->getName();
+
+        // For tenants
+        if ($commandName === 'tenants:seed') {
+            $this->call([
+                TenantRolesAndPermissionsSeeder::class,
+                UsersSeeder::class,
+            ]);
+
+            return;
+        }
+
+        // For landlord
         $this->call([
             RolesAndPermissionsSeeder::class,
             UsersSeeder::class,
@@ -27,13 +40,5 @@ class DatabaseSeeder extends Seeder
             // TenantCategoriesSeeder::class,
             // TenantsSeeder::class,
         ]);
-
-        // Tenant::all()
-        //     ->runForEach(function (): void {
-        //         $this->call([
-        //             TenantRolesAndPermissionsSeeder::class,
-        //             // UsersSeeder::class,
-        //         ]);
-        //     });
     }
 }

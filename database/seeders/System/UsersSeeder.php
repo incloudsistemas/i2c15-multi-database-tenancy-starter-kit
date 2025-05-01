@@ -31,13 +31,13 @@ class UsersSeeder extends Seeder
         $superadmin->assignRole('Superadministrador');
 
         // Delay of 1 seconds
-        sleep(1);
+        // sleep(1);
 
-        User::factory(10)
-            ->create()
-            ->each(function ($user) {
-                $user->assignRole('Administrador');
-            });
+        // User::factory(10)
+        //     ->create()
+        //     ->each(function ($user) {
+        //         $user->assignRole('Administrador');
+        //     });
     }
 
     protected function truncateTable()

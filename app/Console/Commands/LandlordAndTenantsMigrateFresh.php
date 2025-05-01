@@ -6,14 +6,14 @@ use App\Models\System\Tenant;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
-class TenancyMigrateFresh extends Command
+class LandlordAndTenantsMigrateFresh extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:tenancy-migrate-fresh';
+    protected $signature = 'landlord-tenants:migrate-fresh';
 
     /**
      * The console command description.

@@ -6,7 +6,7 @@ return [
      */
     'create_users' => [
         'landlord' => false,
-        'tenant'   => true,
+        'tenant'   => false,
     ],
 
     /**
@@ -29,7 +29,7 @@ return [
             'Administrador' => [
                 'Usuários'             => 'c,r,u,d',
                 'Planos'               => 'c,r,u,d',
-                'Contas de Clientes'   => 'c,r,u,d',
+                'Contas de Clientes'   => 'c,r,u',
                 'Categorias de Contas' => 'c,r,u,d',
             ],
             // 'Diretor' => [

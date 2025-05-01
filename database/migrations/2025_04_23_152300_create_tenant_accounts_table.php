@@ -35,7 +35,7 @@ return new class extends Migration
             // CPF/CNPJ
             $table->string('cpf_cnpj')->unique()->nullable();
             // Nome do títular
-            $table->string('holder_name')->unique()->nullable();
+            $table->string('holder_name')->nullable();
             // Email(s)
             $table->string('emails')->nullable();
             // Telefone(s) de contato

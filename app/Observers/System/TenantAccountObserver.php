@@ -27,10 +27,22 @@ class TenantAccountObserver
      */
     public function deleted(TenantAccount $tenantAccount): void
     {
-        $tenantAccount->tenant->id = $tenantAccount->tenant->id . '//deleted_' . md5(uniqid());
-        $tenantAccount->tenant->save();
+        $suffix = '//deleted_' . md5(uniqid());
 
-        $tenantAccount->tenant->delete();
+        $tenantAccount->cpf_cnpj = !empty($tenantAccount->cpf_cnpj) ? $tenantAccount->cpf_cnpj . $suffix : null;
+        $tenantAccount->save();
+
+        // $tenant = $tenantAccount->tenant;
+
+        // $tenant->id = $tenant->id . $suffix;
+        // $tenant->save();
+
+        // foreach ($tenant->domains as $domain) {
+        //     $domain->domain = $domain->domain . $suffix;
+        //     $domain->save();
+        // }
+
+        // $tenant->delete();
     }
 
     /**

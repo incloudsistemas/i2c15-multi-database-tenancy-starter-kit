@@ -42,9 +42,12 @@ class TenantFactory extends Factory
                 ]);
 
             // Create an Domain related to the Tenant
+            $baseDomain = config('tenancy.base_domain');
+            $domain = "{$tenant->id}.{$baseDomain}";
+
             $tenant->domains()
                 ->create([
-                    'domain' => $tenant->id . '.i2c.local',
+                    'domain' => $domain,
                 ]);
 
             // tenancy()->initialize($tenant);

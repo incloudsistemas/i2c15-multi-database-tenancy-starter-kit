@@ -76,12 +76,6 @@ $tenant2->account()->create(['name' => 'Bar']);
 $tenant2->domains()->create(['domain' => 'bar.i2c.local']);
 ```
 
-#### 7.1 Run user permission and role seeders for tenants
-
-```bash
-php artisan tenants:seed --class=Database\Seeders\System\TenantRolesAndPermissionsSeeder
-```
-
 ### 8. For local development, map your domains in your hosts file:
 
 ```bash
@@ -99,8 +93,8 @@ Windows => C:\Windows\System32\drivers\etc\hosts
 php artisan serve --host=0.0.0.0 --port=8000
 
 Central Admin: http://admin.i2c.local:8000
-Tenant Foo: http://foo.i2c.local:8000
-Tenant Bar: http://bar.i2c.local:8000
+Tenant  Foo: http://foo.i2c.local:8000
+Tenant  Bar: http://bar.i2c.local:8000
 ```
 
 ### 10. Build frontend assets
